@@ -48,45 +48,14 @@
         <br>
         <h2>Latest Posts</h2>
         <hr>
-        <a href="#"><h3>My First Blog</h3></a>
-        <p>22 Fab, 2018</p>
-          <a href="#"><img class="img-fluid" src="skt.png" width="400" height="200" /></a>
-        <p class="pt-3">This is a short summary of my post.</p>
 
-        <a href="#"><h3>My First Blog</h3></a>
-        <p>22 Fab, 2018</p>
-          <a href="#"><img class="img-fluid" src="skt.png" width="400" height="200" /></a>
-        <p class="pt-3">This is a short summary of my post.</p>
+        {% for blog in blogs %}
+        <a href="{% url 'detail' blog.id %}"><h3>{{ blog.title }}</h3></a>
+        <p>{{ blog.pub_date_pretty }}</p>
+        <a href="{% url 'detail' blog.id %}"><img class="img-fluid" src="{{ blog.image.url }}" width="400" height="200" /></a>
+        <p class="pt-3">{{ blog.summary }}</p>
+        {% endfor %}
 
-        <a href="#"><h3>My First Blog</h3></a>
-        <p>22 Fab, 2018</p>
-          <a href="#"><img class="img-fluid" src="skt.png" width="400" height="200" /></a>
-        <p class="pt-3">This is a short summary of my post.</p>
-
-        <a href="#"><h3>My First Blog</h3></a>
-        <p>22 Fab, 2018</p>
-          <a href="#"><img class="img-fluid" src="skt.png" width="400" height="200" /></a>
-        <p class="pt-3">This is a short summary of my post.</p>
-
-        <a href="#"><h3>My First Blog</h3></a>
-        <p>22 Fab, 2018</p>
-          <a href="#"><img class="img-fluid" src="skt.png" width="400" height="200" /></a>
-        <p class="pt-3">This is a short summary of my post.</p>
-
-        <a href="#"><h3>My First Blog</h3></a>
-        <p>22 Fab, 2018</p>
-          <a href="#"><img class="img-fluid" src="skt.png" width="400" height="200" /></a>
-        <p class="pt-3">This is a short summary of my post.</p>
-
-        <a href="#"><h3>My First Blog</h3></a>
-        <p>22 Fab, 2018</p>
-          <a href="#"><img class="img-fluid" src="skt.png" width="400" height="200" /></a>
-        <p class="pt-3">This is a short summary of my post.</p>
-
-        <a href="#"><h3>My First Blog</h3></a>
-        <p>22 Fab, 2018</p>
-          <a href="#"><img class="img-fluid" src="skt.png" width="400" height="200" /></a>
-        <p class="pt-3">This is a short summary of my post.</p>
         <hr>
       </div>
 
@@ -94,7 +63,7 @@
 
     <footer class="text-muted">
       <div class="container text-center">
-        <p>© Omer Zaheer 2018</p>
+        <p>© Omer Zaheer {% now "Y" %}</p>
       </div>
     </footer>
 
